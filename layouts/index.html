@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ partial "about.html" .}}
+   {{ if .Site.Params.showInitiatives }}
+      {{ with .Site.GetPage "section" "initiatives" }}
+         {{ .Scratch.Set "sectionId" "initiatives" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showMission }}
+      {{ with .Site.GetPage "section" "mission" }}
+         {{ .Scratch.Set "sectionId" "mission" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showPublications }}
+      {{ with .Site.GetPage "section" "publications" }}
+         {{ .Scratch.Set "sectionId" (default "Publications" .Site.Params.publicationsAlternateName) }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+   {{ if .Site.Params.showBlog }}
+      {{ with .Site.GetPage "section" "blogs" }}
+         {{ .Scratch.Set "sectionId" "blogs" }}
+         {{ partial "sectionSummary" . }}
+      {{ end }}
+   {{ end }}
+{{ end }}

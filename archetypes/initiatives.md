@@ -1,0 +1,11 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+featured: true
+description: "Text used in summary on main page"
+image: ""
+link: "URL linked from project details page"
+weight: 500
+sitemap:
+  priority : 0.8
+---
